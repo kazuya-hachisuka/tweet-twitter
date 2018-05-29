@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweetTwitter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<div class="container">
+	<div class="row">
+		<ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animetions="zoomIn fadeIn fadeInUp fadeIn">
+			<%if user_signed_in? %>
+			<li class="">
+				<%= link_to "log_out",destroy_user_session_path, method: :delete %>
+			</li>
+			<li class="">
+				<%= link_to "new_tweet",new_tweet_path %>
+			</li>
+			<li class="">
+				<%= link_to "my_page","#" %>
+			</li>
+			<li class"">
+				<%= link_to "index",tweets_path %>
+			</li>
+		<% else %>
+			</li>
+			<li class="">
+				<%= link_to "sign_up",new_user_registration_path %>
+			</li>
+			<li class="">
+				<%= link_to "log_in",new_user_session_path %>
+			</li>
+		<% end %>
+	</div>
+</div>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

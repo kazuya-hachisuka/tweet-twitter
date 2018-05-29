@@ -1,0 +1,9 @@
+<h1>Tweets#new</h1>
+<%= form_for Tweet.new do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+	<%= f.attachment_field :image %>
+	<%= f.submit %>
+<% end %>

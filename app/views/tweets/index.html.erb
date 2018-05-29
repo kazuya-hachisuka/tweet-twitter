@@ -1,0 +1,12 @@
+<body>
+<h1>Tweets#index</h1>
+<% @tweets.each do |tweet| %>
+<tbody>
+<tr>
+	<td><%= tweet.title %></td>
+	<td><%= tweet.content %></td>
+	<td><%= attachment_image_tag tweet,:image, :fill,60,60, class: "profile-thumb", fallback: "twitter.png",:size => "60×60" %></td>
+</tr>
+</tbody>
+<% end %>
+</body>
