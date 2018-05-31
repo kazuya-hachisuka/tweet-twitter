@@ -12,6 +12,27 @@
  *
  *= require_tree .
  *= require_self
+ *= require lightbox
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.header_title {
+	margin-left: 70px;
+	float:left
+}
+.navbar-default {
+  background-color: #9b44bf;
+}
+.tweet .jumbotron{
+	margin-top: 70px;
+}
+.usershowhead .jumbotron{
+	margin-top: 30px;
+	background-color: #dddddd;
+}
+.usershow .jumbotron{
+	background-color: #E0FFFF;
+}
+.img-responsive-overwrite{
+	margin: 0 auto;
+}

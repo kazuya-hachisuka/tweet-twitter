@@ -1,2 +1,30 @@
+<div class="tweet container">
+	<div class="jumbotron col-md-12">
 <h1>Tweets#show</h1>
-<p>Find me in app/views/tweets/show.html.erb</p>
+<b>Image</b>
+<div class="conteiner">
+<div class="center-block"><%= attachment_image_tag @tweet,:image, :fit,700,500, class: "img-responsive img-responsive-overwrite ",fallback: "taco.jpg",:size => '700x500' %></div>
+</div>
+	<table class="table table-hover table-inverse">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Title</td>
+				<td>Content</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @tweet.user.name %></td>
+				<td><%= @tweet.title %></td>
+				<td><%= @tweet.content %></td>
+				<% if @tweet.user.id == current_user.id %>
+				<td><%= link_to 'Edit', edit_tweet_path, class: 'btn btn-success btn-sm glyphicon glyphicon-pencil' %></td>
+				<td><%= link_to 'Destroy', tweet_path(@tweet), method: :delete,data: {confirm: 'Are you sure??'},class: 'btn btn-danger btn-sm glyphicon glyphicon-trash' %></td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>
+<%= render 'post_comments/comment' %>

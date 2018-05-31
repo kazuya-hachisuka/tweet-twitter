@@ -1,0 +1,42 @@
+<div class="usershowhead container">
+	<div class="jumbotron col-md-12">
+		<h1><%= attachment_image_tag @user, :profile_image, resize_to_fit: [150,150],class: "profile-thumb", fallback: "anonymous.png", :size => "150x150" %> <%= @user.name %> 's Tweets!!</h1>
+		<% if @user == current_user %>
+		<button class="btn btn-default btn-xs">
+		<%= link_to "",edit_user_path(current_user.id), class: "glyphicon glyphicon-pencil " %>
+		</button>
+		<% else %>
+			<button class="btn btn-default btn-xs glyphicon glyphicon-warning-sign"></button>
+		<% end %>
+	</div>
+</div>
+<div class="usershow container">
+	<div class=" jumbotron col-md-12">
+		<table class="table table-hover table-inverse">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Image</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @tweet.each do |tweet| %>
+				<tr>
+					<td><%= tweet.title %></td>
+					<td><%= tweet.content %></td>
+					<td><%= attachment_image_tag tweet, :image, :fill, 60,60, class: "profile-thumb", fallback: "taco.jpg",:size => "60x60"  %></td>
+					<td><%= link_to "Show",tweet_path(tweet.id),class: 'btn btn-success btn-sm glyphicon glyphicon-eye-open' %></td>
+					<% if tweet.user.id == current_user.id %>
+					<td><%= link_to "Edit", edit_tweet_path(tweet.id),class: 'btn btn-info btn-sm glyphicon glyphicon-pencil' %></td>
+					<% else %>
+					<td><span class="btn btn-info disabled btn-sm glyphicon glyphicon-warning-sign">Edit</span></td>
+					<% end %>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

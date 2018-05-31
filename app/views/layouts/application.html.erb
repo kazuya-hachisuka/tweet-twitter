@@ -7,35 +7,39 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<div class="container">
-	<div class="row">
+<nav class="navbar-default">
+<div class="container row">
+	<strong class="header_title"><%= image_tag 'taco.png', :size =>'30x30'%>Tacotter??</strong>
 		<ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animetions="zoomIn fadeIn fadeInUp fadeIn">
 			<%if user_signed_in? %>
-			<li class="">
-				<%= link_to "log_out",destroy_user_session_path, method: :delete %>
+			<li>
+				<%= link_to "users",user_path(current_user.id),:style=>"color:#ffffff;" %>
 			</li>
-			<li class="">
-				<%= link_to "new_tweet",new_tweet_path %>
+			<li>
+				<%= link_to "new_tweet",new_tweet_path,:style=>"color:#ffffff;" %>
 			</li>
-			<li class="">
-				<%= link_to "my_page","#" %>
+			<li>
+				<%= link_to "index",tweets_path,:style=>"color:#ffffff;" %>
 			</li>
-			<li class"">
-				<%= link_to "index",tweets_path %>
+			<li>
+				<%= link_to "log_out",destroy_user_session_path, method: :delete, :style=>"color:#bbbbbb;font-size:1em;"%>
 			</li>
 		<% else %>
 			</li>
-			<li class="">
-				<%= link_to "sign_up",new_user_registration_path %>
+			<li>
+				<%= link_to "sign_up", new_user_registration_path,:style=>"color:#ffffff;font-size:1.5em;" %>
 			</li>
-			<li class="">
-				<%= link_to "log_in",new_user_session_path %>
+			<li>
+				<%= link_to "log_in",new_user_session_path,:style=>"color:#ffffff;font-size:1.5em;" %>
 			</li>
 		<% end %>
-	</div>
+		</ul>
 </div>
-
+</nav>
   <body>
-    <%= yield %>
+    <%= yield %><br>
+<div class="pull-right container">
+<p class="text-right">Powered by Tacotter.</p>
+</div>
   </body>
 </html>

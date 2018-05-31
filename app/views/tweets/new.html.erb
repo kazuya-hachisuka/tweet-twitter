@@ -1,9 +1,5 @@
-<h1>Tweets#new</h1>
-<%= form_for Tweet.new do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<%= f.label :content %>
-	<%= f.text_area :content %>
-	<%= f.attachment_field :image %>
-	<%= f.submit %>
-<% end %>
+<div class="tweet container">
+	<div class="jumbotron col-md-12">
+		<%= render 'tweets/new', tweet:@tweet %>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+		<h1>Tweet#new</h1>
+		<%= form_for Tweet.new do |f| %>
+			<b class="input-xlarge">Title</b>
+			<%= f.text_field :title,class: 'form-control' %>
+			<b class="input-xlarge">Content</b>
+			<%= f.text_area :content,class: 'form-control' %>
+			<b class="input-xlarge">Image</b>
+			<%= f.attachment_field :image %><br>
+			<%= f.submit 'Create Tweet!!!' , class: 'btn btn-primary'%>
+		<% end %>
